@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mlflow-deployment
+  namespace: mlflow
+  labels:
+    app: mlflow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mlflow
+  template:
+    metadata:
+      labels:
+        app: mlflow
+    spec:
+      containers:
+        - name: mlflow
+          image: "python:3.9-slim"
+          command: ["sh", "-c"]
+          args:
+            [
+              "pip install mlflow && mlflow server --host 0.0.0.0"
+            ]
+          ports:
+            - containerPort: 5000
