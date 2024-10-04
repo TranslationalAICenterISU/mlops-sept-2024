@@ -1,0 +1,58 @@
+# Core libraries
+numpy
+pandas
+scipy
+
+# Machine Learning
+scikit-learn
+torch
+torchvision
+
+# Deep Learning utilities
+tensorboard
+
+# MLOps tools
+mlflow
+wandb
+
+# Web framework and API
+fastapi
+uvicorn
+python-multipart
+
+# Data processing and visualization
+Pillow
+matplotlib
+seaborn
+
+# Image processing
+opencv-python
+
+# Data app
+streamlit
+
+# Monitoring
+prometheus-client
+
+# Utilities
+tqdm
+pytest
+
+# Jupyter (optional, for development)
+jupyter
+ipykernel
+
+# API documentation
+pydantic
+
+# HTTP client (for testing)
+requests
+
+# YAML parsing (for configurations)
+PyYAML
+
+# File handling
+python-magic
+
+# Environment management
+python-dotenv

@@ -1,0 +1,40 @@
+# Global config
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds
+  evaluation_interval: 15s # Evaluate rules every 15 seconds
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      # - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'fastapi'
+    # metrics_path defaults to '/metrics'
+    # scheme defaults to 'http'.
+    static_configs:
+    - targets: ['localhost:8000']
+
+  # Scrape Prometheus itself
+  - job_name: 'prometheus'
+    static_configs:
+    - targets: ['localhost:9090']
+
+  # Add MLflow metrics if you've set it up to expose them
+  - job_name: 'mlflow'
+    static_configs:
+    - targets: ['localhost:5000']
+
+  # Add Grafana metrics
+  - job_name: 'grafana'
+    static_configs:
+    - targets: ['localhost:3000']
